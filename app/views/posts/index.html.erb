@@ -1,12 +1,9 @@
 <div class="col col-sm-7">
   <h3>Posts</h3>
   <ol class="posts">
-    
-    <% if @feed == nil %>
-    <%= render partial: 'feed', collection: @feed %>
+    <% if @feed != nil %>
+    	<%= render partial: 'feed', collection: @feed %>
     <% end %>
     	
-
-    
   </ol>
 </div>
