@@ -25,11 +25,15 @@ class SubcommentsController < ApplicationController
   # POST /subcomments.json
   def create
 
-    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:comment_id])
     @subcomment = @comment.subcomments.create(subcomment_params)
+    @subcomment.user_id = current_user.id
+    @subcomment.save
 
       flash[:notice] = "Added your comment"
-      redirect_to post_path(@post)
+      
+      redirect_to comment_path(@comment)
+
     
     #@subcomment = Subcomment.new(subcomment_params)
 
@@ -42,7 +46,7 @@ class SubcommentsController < ApplicationController
     #    format.json { render json: @subcomment.errors, status: :unprocessable_entity }
     #  end
     #end
-  #end
+  end
 
   # PATCH/PUT /subcomments/1
   # PATCH/PUT /subcomments/1.json
