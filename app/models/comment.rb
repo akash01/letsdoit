@@ -1,6 +1,4 @@
 class Comment < ActiveRecord::Base
-
-  belongs_to :post
-
-
+	belongs_to :post
+	has_many :subcomments
 end
