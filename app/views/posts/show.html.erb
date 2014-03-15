@@ -28,14 +28,11 @@
         </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :text %><br>
-      <%= f.text_field :text %>
-      <%= f.hidden_field :postid, :value => @post.id%>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+    <%= form_tag :action => "comment", :id => @post %>
+       <%= text_area "comment", "body" %><br />
+       <%= submit_tag "Comment" %>
+    </form>
+    
 <% end %>
 
 

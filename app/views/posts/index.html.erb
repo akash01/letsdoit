@@ -1,40 +1,6 @@
-<<<<<<< HEAD
- <div class="col col-sm-7">
+<div class="col col-sm-7">
   <h3>Posts</h3>
   <ol class="posts">
     <%= render partial: 'feed', collection: @feed %>
   </ol>
 </div>
-=======
- <h1>Listing posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Price</th>
-      <th>Range</th>
-      <th>Timeframe</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.price %></td>
-        <td><%= post.range %></td>
-        <td><%= post.timeframe %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
->>>>>>> 35995e01716701ad4a2f355e823c9ce7994953aa
