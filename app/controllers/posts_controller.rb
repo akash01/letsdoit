@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-
     @comment = Comment.new
 
   end
@@ -28,6 +27,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+
 
     respond_to do |format|
       if @post.save
@@ -65,9 +65,19 @@ class PostsController < ApplicationController
   end
 
   private
+
+    def not_found     
+      flash[:notice] = "Post not found :("
+      redirect_to posts_path
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+        if Post.exists?(params[:id]) 
+         @post = Post.find(params[:id]) 
+        else 
+          not_found
+        end  
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
