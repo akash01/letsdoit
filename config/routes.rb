@@ -1,4 +1,6 @@
 Letsdoit::Application.routes.draw do
+  resources :subcomments
+
   resources :comments
 
   resources :posts
