@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20140315221950) do
     t.integer  "user_id"
   end
 
+  create_table "subcomments", force: true do |t|
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.string   "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "provider"
     t.string   "uid"
