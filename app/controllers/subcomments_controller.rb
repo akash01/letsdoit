@@ -73,9 +73,21 @@ class SubcommentsController < ApplicationController
   end
 
   private
+
+    def not_found     
+      flash[:notice] = "Subcomment not found :("
+      redirect_to comment_path
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_subcomment
-      @subcomment = Subcomment.find(params[:id])
+      
+      if Subcomment.exists?(params[:id]) 
+         @subcomment = Subcomment.find(params[:id]) 
+        else 
+          not_found
+      end 
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

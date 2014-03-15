@@ -64,9 +64,21 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def not_found     
+      flash[:notice] = "User not found :("
+      redirect_to users_path
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      
+      if User.exists?(params[:id]) 
+         @user = User.find(params[:id]) 
+        else 
+          not_found
+      end   
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

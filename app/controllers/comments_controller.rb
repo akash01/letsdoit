@@ -62,9 +62,19 @@ class CommentsController < ApplicationController
   end
 
   private
+
+    def not_found     
+      flash[:notice] = "Comment not found :("
+      redirect_to comments_path
+    end
+
     # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
+    def set_comment     
+      if Comment.exists?(params[:id]) 
+         @comment = Comment.find(params[:id]) 
+        else 
+          not_found
+      end 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
