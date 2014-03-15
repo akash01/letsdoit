@@ -38,6 +38,8 @@ end
 # Use bootstrap for css
 gem 'bootstrap-sass', '~> 3.1.0'
 
+gem 'fb_graph'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

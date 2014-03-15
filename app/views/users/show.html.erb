@@ -5,10 +5,20 @@
   <%= @user.name %>
 </p>
 
-<p>
-  <strong>Fbkey:</strong>
-  <%= @user.fbkey %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Friend Name</th>
+    </tr>
+  </thead>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= @friends.inspect %>
