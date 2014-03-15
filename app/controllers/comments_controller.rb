@@ -14,8 +14,6 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
-    @post = Post.find(params[:post_id])
-
     @comment = Comment.new
   end
 
@@ -26,13 +24,30 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
-     Post.find(params[:id]).comments.create(params[:comment])
-    #Post.find(1).comments.create(comment_params)
-    #@post = Post.find(params[:post_id])
-    #@comment = @post.comments.create(comment_params)
+    
+    @post = Post.find(params[:post_id]) 
+    @comment = Comment.new(:text => params[:text], :post_id => params[:post_id])   
+    #@comment.save
 
-    flash[:notice] = "Added your comment"
-    redirect_to root
+    if @comment.save
+      flash[:notice] = "Added your comment"
+      @post.comments << @comment
+      redirect_to @post
+    else
+      flash[:notice] = "Unable to save comment"
+      render :new
+    end
+
+    #comment_params[:post_id].inspect
+
+    #render :text => @comment.inspect
+
+#    post = Post.find(comment_params[:post_id])
+#    @comment = @post.comments.create(comment_params)
+
+
+#    flash[:notice] = "Added your comment"
+#    redirect_to root
 
   end
 
@@ -68,6 +83,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:texts, :post_id )
+      #params.require(:comment).permit(:text, :post_id )
     end
 end
