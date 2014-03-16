@@ -16,7 +16,7 @@
 
 	  <% feed.comments.each do | c | %>
 	  	<ul style="padding-top:2%;">
-	  		<li> <%= c.text %>  <%= link_to "comment", comment_path(c), :class => "suggest" %>  </li>
+	  		<li> <%= c.user.name %><%= c.text %>  <%= link_to "comment", comment_path(c), :class => "suggest" %>  </li>
 
 	  		<% c.subcomments.each do | sc | %>
 	  			<ul>
