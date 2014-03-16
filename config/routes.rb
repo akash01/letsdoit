@@ -7,7 +7,7 @@ Letsdoit::Application.routes.draw do
 
   resources :users
 
-  root 'users#index'
+  root 'posts#index'
   
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

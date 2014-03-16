@@ -1,9 +1,16 @@
-<div class="col col-sm-7">
-  <h3>Posts</h3>
-  <ol class="posts">
-    <% if @feed != nil %>
-    	<%= render partial: 'feed', collection: @feed %>
-    <% end %>
-    	
-  </ol>
-</div>
+<% if session[:user_id] %>
+<section class="row">
+  <div class="col col-sm-7">
+      
+      <%= render partial: 'feed', collection: @feed %>
+    </div>
+</section>
+<% else %>
+	<div class="center jumbotron">
+	  <h1>Welcome to the Lets Do It</h1>
+	  <h3 class="facebook">
+	    <%= link_to "Facebook Signin", "/auth/facebook"%>
+	  </h3>
+	</div>
+
+<% end %>
