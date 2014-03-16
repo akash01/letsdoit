@@ -5,6 +5,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @feed = Post.all
+    @comments = Comment.all
+    @subcomments = Subcomment.all
   end
 
   # GET /posts/1

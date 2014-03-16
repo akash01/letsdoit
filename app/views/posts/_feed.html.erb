@@ -1,10 +1,19 @@
-<li id="<%= feed.id %>">
+<li id="post-<%= feed.id %>">
   <span class="user">
     <%= link_to feed.user.name, feed.user.name %>
   </span>
-  <span class="content"> i want <%= feed.price %> euro </span>
+  <span class="content"> I'm looking to do something that costs <%= feed.price %> euro, I have about <%= feed.timeframe%> hours to spare. Preferably somewhere around <%= feed.range %>. 
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(feed.created_at) %> ago.
   </span>
 
+
+  <% feed.comments.each do | c | %>
+  	<div id="comment-<%= c.id %>">
+  		<li> <%= c.text %> </li>  	
+  	</div>
+  <% end %>
+
 </li>
+

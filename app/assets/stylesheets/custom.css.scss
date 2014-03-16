@@ -1,4 +1,3 @@
-@import "bootstrap-social";
 @import "bootstrap";
 
 
@@ -29,6 +28,27 @@ body {
     border-top: 1px solid #e8e8e8;
   }
 }
+.timestamp {
+  color: #A2A2A2;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+    width: inherit;
+  }
+}
+
+/* feed */
+.comment {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
 .content {
   display: block;
 }
@@ -46,3 +66,4 @@ aside {
     width: inherit;
   }
 }
+
