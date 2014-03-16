@@ -1,7 +1,9 @@
 <div id="post-<%= feed.id %>">
  
  <span class="user"> 
-	  <%= link_to feed.user.name, feed.user.name %> 
+<% if not feed.user.nil? %>
+   <%= link_to feed.user.name, feed.user.name %>
+       <% end %>
  </span>
 
  <div style="padding-left:2%;">	  
