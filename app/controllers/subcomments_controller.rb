@@ -32,7 +32,7 @@ class SubcommentsController < ApplicationController
 
       flash[:notice] = "Added your comment"
       
-      redirect_to comment_path(@comment)
+      redirect_to posts_path
 
     
     #@subcomment = Subcomment.new(subcomment_params)

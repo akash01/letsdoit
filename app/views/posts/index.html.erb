@@ -1,11 +1,9 @@
 <% if session[:user_id] %>
-<section class="row">
-  <div class="col col-sm-7">
+  <div style="padding-top:2%; margin-left:auto; margin-right:auto; width: 600px">
       
       <%= render partial: 'feed', collection: @feed %>
 
     </div>
-</section>
 <% else %>
 	<div class="center jumbotron">
 	  <h1>Welcome to the Lets Do It</h1>

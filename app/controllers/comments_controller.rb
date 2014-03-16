@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
     @comment.save
 
       flash[:notice] = "Added your comment"
-      redirect_to post_path(@post)
+      redirect_to posts_path
     
 
   end
