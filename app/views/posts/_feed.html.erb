@@ -1,0 +1,32 @@
+<div id="post-<%= feed.id %>">
+ 
+ <span class="user"> 
+<% if not feed.user.nil? %>
+   <%= link_to feed.user.name, feed.user.name %>
+       <% end %>
+ </span>
+
+ <div style="padding-left:2%;">	  
+	  <span class="content"> I'm looking to do something that costs <%= feed.price %> euro, I have about <%= feed.timeframe%> hours to spare. Preferably somewhere around <%= feed.range %>. 
+	  </span>
+	  <span class="timestamp">
+	    Posted <%= time_ago_in_words(feed.created_at) %> ago.
+	  </span>
+	  <%= link_to "suggest", post_path(feed), :class => "suggest" %>
+
+	  <% feed.comments.each do | c | %>
+	  	<ul style="padding-top:2%;">
+	  		<li> <%= c.user.name %> <%= c.text %>  <%= link_to "comment", comment_path(c), :class => "suggest" %>  </li>
+
+	  		<% c.subcomments.each do | sc | %>
+	  			<ul>
+	  				<li> <%= sc.user.name %> <%= sc.body %> </li> 
+	  			</ul>
+	  		<% end %>
+	  	</ul>
+	  <% end %>
+
+	  <br>
+ </div>	  
+</div>
+

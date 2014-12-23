@@ -1,0 +1,28 @@
+<h1>Listing subcomments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Comment</th>
+      <th>User</th>
+      <th>Body</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subcomments.each do |subcomment| %>
+      <tr>
+        <td><%= subcomment.comment_id %></td>
+        <td><%= subcomment.user_id %></td>
+        <td><%= subcomment.body %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Subcomment', new_subcomment_path %>

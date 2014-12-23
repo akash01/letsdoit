@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @comment.text %>
+</p>
+
+<p>
+  <strong>Postid:</strong>
+  <%= @comment.post_id %>
+</p>
+
+
+<%= form_for(@subcomment) do |f| %>
+  <% if @subcomment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subcomment.errors.count, "error") %> prohibited this subcomment from being saved:</h2>
+
+      <ul>
+      <% @subcomment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field_tag 'comment_id', Integer(@comment.id) %>
+
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_field :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

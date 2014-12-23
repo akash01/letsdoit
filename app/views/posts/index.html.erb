@@ -1,0 +1,15 @@
+<% if session[:user_id] %>
+  <div style="padding-top:2%; margin-left:auto; margin-right:auto; width: 600px">
+      
+      <%= render partial: 'feed', collection: @feed %>
+
+    </div>
+<% else %>
+	<div class="center jumbotron">
+	  <h1>Welcome to the Lets Do It</h1>
+	  <h3 class="facebook">
+	    <%= link_to "Facebook Signin", "/auth/facebook"%>
+	  </h3>
+	</div>
+
+<% end %>
